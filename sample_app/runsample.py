@@ -54,7 +54,7 @@ import time
 from gridappsd import GridAPPSD, DifferenceBuilder, utils
 from gridappsd.topics import simulation_input_topic, simulation_output_topic, simulation_log_topic, simulation_output_topic
 
-DEFAULT_MESSAGE_PERIOD = 5
+DEFAULT_MESSAGE_PERIOD = 10
 
 # logging.basicConfig(stream=sys.stdout, level=logging.DEBUG,
 #                     format="%(asctime)s - %(name)s;%(levelname)s|%(message)s",
@@ -108,6 +108,8 @@ class CapacitorToggler(object):
             _log.debug(f"Adding cap sum difference to list: {cap_mrid}")
             self._open_diff.add_difference(cap_mrid, "ShuntCompensator.sections", 0, 1)
             self._close_diff.add_difference(cap_mrid, "ShuntCompensator.sections", 1, 0)
+            # self._open_diff.add_difference(cap_mrid, "ShuntCompensator.sections", 1, 0)
+            # self._close_diff.add_difference(cap_mrid, "ShuntCompensator.sections", 0, 1)
 
     def on_message(self, headers, message):
         """ Handle incoming messages on the simulation_output_topic for the simulation_id

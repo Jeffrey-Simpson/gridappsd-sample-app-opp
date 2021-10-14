@@ -65,14 +65,14 @@ The following is the recommended structure for an applications working with grid
 
     ```console
     osboxes@osboxes> cd gridappsd-sample-app
-    osboxes@osboxes> docker build --network=host -t sample-app .
+    osboxes@osboxes> docker build --network=host -t sample-app-opp .
     ```
 
 1.  Add the following to the gridappsd-docker/docker-compose.yml file
 
     ```` yaml
-    sampleapp:
-      image: sample-app
+    sampleappopp:
+      image: sample-app-opp
       depends_on: 
         gridappsd    
     ````
